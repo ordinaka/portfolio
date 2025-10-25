@@ -341,12 +341,14 @@
             }
 
             try {
+                // wait until the server reply before moving to the next line
                 const response = await fetch('/contact', {
                     method: "POST",
                     headers: {"content-type": "application/json"},
                     body: JSON.stringify({name, email, message})
                 });
 
+                // convert the server response message to json
                 const result = await response.json();
 
                 if (response.ok) {
