@@ -5,7 +5,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 
 
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 4000
 const app = express();
 
 dotenv.config();
@@ -51,4 +51,4 @@ app.post("/contact", async (req, res)=>{
 
 app.listen(port, ()=>{
     console.log(`server is running on port ${port}`);
-})
+});
