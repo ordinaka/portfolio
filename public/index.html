@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David | Full-Stack Developer Portfolio</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Define a custom theme using Tailwind's configuration */
+        :root {
+            --color-primary: #111827; /* Dark Grey/Black */
+            --color-secondary: #1F2937; /* Slightly lighter dark */
+            --color-accent: #3b82f6; /* Blue */
+            --color-text: #F9FAFB; /* Off-White */
+        }
+        .image {
+        }
+        html {
+            scroll-behavior: smooth;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-primary);
+        }
+
+        /* Styling for the Navigation bar on scroll */
+        .scrolled {
+            background-color: rgba(17, 24, 39, 0.95); /* Semi-transparent dark primary */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        /* Custom utility for component shadows */
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hide the mobile menu by default */
+        #mobile-menu {
+            transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+        }
+
+        #mobile-menu.open {
+            max-height: 300px; /* Adjust based on content */
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="text-gray-100 min-h-screen">
+
+    <!-- Navigation Bar -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[--color-primary] border-b border-[--color-secondary]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#hero" class="text-xl font-bold text-white tracking-wider hover:text-[--color-accent] transition duration-200">
+                Victor<span class="text-[--color-accent]">.dev</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link text-sm font-medium hover:text-[--color-accent] transition duration-200">About</a>
+                <a href="#skills" class="nav-link text-sm font-medium hover:text-[--color-accent] transition duration-200">Expertise</a>
+                <a href="#projects" class="nav-link text-sm font-medium hover:text-[--color-accent] transition duration-200">Projects</a>
+                <a href="#contact" class="nav-link text-sm font-medium hover:text-[--color-accent] transition duration-200">Contact</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-lg hover:bg-[--color-secondary] transition duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+            </button>
+
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <nav id="mobile-menu" class="md:hidden bg-[--color-secondary] w-full border-t border-gray-700">
+            <a href="#about" class="block py-3 px-8 text-sm font-medium hover:bg-gray-700/50 transition duration-200" onclick="document.getElementById('mobile-menu').classList.remove('open')">About</a>
+            <a href="#skills" class="block py-3 px-8 text-sm font-medium hover:bg-gray-700/50 transition duration-200" onclick="document.getElementById('mobile-menu').classList.remove('open')">Expertise</a>
+            <a href="#projects" class="block py-3 px-8 text-sm font-medium hover:bg-gray-700/50 transition duration-200" onclick="document.getElementById('mobile-menu').classList.remove('open')">Projects</a>
+            <a href="#contact" class="block py-3 px-8 text-sm font-medium hover:bg-gray-700/50 transition duration-200" onclick="document.getElementById('mobile-menu').classList.remove('open')">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="h-screen flex items-center justify-center pt-24 pb-8 text-center bg-[--color-primary] border-b border-[--color-secondary]">
+            <div class="container mx-auto px-4 max-w-4xl">
+                <p class="text-xl sm:text-2xl text-[--color-accent] font-semibold mb-4 animate-in fade-in-up">
+                    Hello, I'm Victor
+                </p>
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-tight mb-6">
+                    Full-Stack Engineer <br class="hidden sm:inline"> & <span class="text-[--color-accent]">Database Specialist</span>
+                </h1>
+                <p class="text-lg sm:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                    I architect and build scalable web applications from the ground up, specializing in robust backend logic, dynamic frontends, and efficient **PostgreSQL** data management.
+                </p>
+                <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 text-base font-medium rounded-full text-white bg-[--color-accent] hover:bg-blue-600 transition duration-300 transform hover:scale-105 shadow-lg shadow-blue-500/50">
+                    View My Work
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right ml-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 sm:py-24 bg-[--color-primary] border-b border-[--color-secondary]">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center text-white">
+                    About Me
+                </h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center bg-[--color-secondary] p-8 md:p-12 rounded-xl card-shadow">
+                    <!-- Profile Mock Image/Avatar -->
+                    <div class="flex justify-center md:justify-start">
+                        <!-- Use an SVG icon as a placeholder for a professional avatar -->
+                        <img src="./pic.jpg" alt="pic" class="image">
+                    </div>
+
+                    <div>
+                        <p class="text-xl font-semibold mb-4 text-white">
+                            Driving Innovation from Concept to Deployment
+                        </p>
+                        <p class="text-gray-300 leading-relaxed mb-6">
+                            With **X years** of experience in software development, I specialize in delivering end-to-end solutions that prioritize performance, user experience, and long-term maintainability. I thrive in environments where complexity requires elegant, scalable code.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            My expertise extends beyond standard web frameworks, encompassing complex data modeling and optimization within **PostgreSQL**, ensuring data integrity and rapid access for high-load applications. I am passionate about clean architecture and continuous learning.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills/Expertise Section -->
+        <section id="skills" class="py-20 sm:py-24 bg-[--color-primary] border-b border-[--color-secondary]">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center text-white">
+                    Core Expertise
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Card 1: Frontend -->
+                    <div class="bg-[--color-secondary] p-8 rounded-xl hover:bg-gray-700/50 transition duration-300 transform hover:translate-y-[-5px] card-shadow">
+                        <div class="text-[--color-accent] mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Frontend Development</h3>
+                        <p class="text-gray-400 mb-4">Building pixel-perfect, highly interactive user interfaces with a focus on accessibility and performance.</p>
+                        <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
+                            <li>JavaScript (ES6+), TypeScript</li>
+                            <li>React (or modern framework of choice)</li>
+                            <li>Tailwind CSS, Styled Components</li>
+                            <li>Responsive & Mobile-First Design</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 2: Backend -->
+                    <div class="bg-[--color-secondary] p-8 rounded-xl hover:bg-gray-700/50 transition duration-300 transform hover:translate-y-[-5px] card-shadow">
+                        <div class="text-[--color-accent] mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-server"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">Backend & API Development</h3>
+                        <p class="text-gray-400 mb-4">Designing and implementing robust, secure, and scalable RESTful and GraphQL APIs.</p>
+                        <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
+                            <li>Node.js (Express/NestJS) or Python (Django/Flask)</li>
+                            <li>Authentication (JWT, OAuth)</li>
+                            <li>Microservices Architecture</li>
+                            <li>Cloud Deployment (AWS/Azure/GCP)</li>
+                        </ul>
+                    </div>
+
+                    <!-- Card 3: Database & DevOps -->
+                    <div class="bg-[--color-secondary] p-8 rounded-xl hover:bg-gray-700/50 transition duration-300 transform hover:translate-y-[-5px] card-shadow border-2 border-[--color-accent]">
+                        <div class="text-[--color-accent] mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-3 text-white">PostgreSQL & Data Management</h3>
+                        <p class="text-gray-400 mb-4">Deep knowledge in relational database design, query optimization, and data migration using **PostgreSQL**.</p>
+                        <ul class="list-disc list-inside text-sm text-gray-300 space-y-1">
+                            <li>Advanced SQL & Performance Tuning</li>
+                            <li>PostgreSQL Administration & Scaling</li>
+                            <li>Docker & Containerization</li>
+                            <li>CI/CD Pipelines (e.g., GitHub Actions)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 sm:py-24 bg-[--color-primary] border-b border-[--color-secondary]">
+            <div class="container mx-auto px-4 max-w-6xl">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-12 text-center text-white">
+                    Featured Projects
+                </h2>
+
+                <div class="grid md:grid-cols-2 gap-10">
+
+                    <!-- Project 1 -->
+                    <div class="bg-[--color-secondary] rounded-xl overflow-hidden card-shadow">
+                        <div class="p-6 md:p-8">
+                            <span class="text-xs font-medium text-[--color-accent] uppercase tracking-wider mb-2 block">Full-Stack SaaS Platform</span>
+                            <h3 class="text-2xl font-semibold text-white mb-4">Aura Analytics Dashboard</h3>
+                            <p class="text-gray-300 mb-6">
+                                A high-performance, real-time data visualization dashboard for complex user metrics. Built using React, Node.js/Express, and optimized with **PostgreSQL** to handle millions of records.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-sm font-medium mb-6">
+                                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">React</span>
+                                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Node.js</span>
+                                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">PostgreSQL</span>
+                                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Tailwind CSS</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-[--color-accent] font-medium hover:text-blue-400 transition duration-200">
+                                View Demo/Code
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link ml-1"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="bg-[--color-secondary] rounded-xl overflow-hidden card-shadow">
+                        <div class="p-6 md:p-8">
+                            <span class="text-xs font-medium text-[--color-accent] uppercase tracking-wider mb-2 block">API & Backend Service</span>
+                            <h3 class="text-2xl font-semibold text-white mb-4">Secure Authentication Gateway</h3>
+                            <p class="text-gray-300 mb-6">
+                                Developed a dedicated microservice for user authentication and authorization using JWTs. Focused on security best practices, rate-limiting, and high availability.
+                            </p>
+                            <div class="flex flex-wrap gap-2 text-sm font-medium mb-6">
+                                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">NestJS</span>
+                                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">TypeScript</span>
+                                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Docker</span>
+                                <span class="bg-gray-700 text-gray-300 px-3 py-1 rounded-full">Redis</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-[--color-accent] font-medium hover:text-blue-400 transition duration-200">
+                                View Code Details
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-external-link ml-1"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 sm:py-24 bg-[--color-primary]">
+            <div class="container mx-auto px-4 max-w-4xl text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-white">
+                    Let's Connect
+                </h2>
+                <p class="text-xl text-gray-400 mb-12">
+                    Have a project in mind or want to discuss full-stack architecture? Reach out!
+                </p>
+
+                <div class="bg-[--color-secondary] p-8 md:p-10 rounded-xl card-shadow">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required class="w-full px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent] outline-none transition duration-200">
+                        </div>
+                        <div>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required class="w-full px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent] outline-none transition duration-200">
+                        </div>
+                        <div>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required class="w-full px-5 py-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:border-[--color-accent] focus:ring-1 focus:ring-[--color-accent] outline-none transition duration-200"></textarea>
+                        </div>
+                        <button type="submit" class="w-full px-8 py-3 text-lg font-semibold rounded-lg text-white bg-[--color-accent] hover:bg-blue-600 transition duration-300 transform hover:scale-[1.01]">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="contact-message" class="mt-4 text-sm text-green-400 hidden"></div>
+                </div>
+
+                <div class="flex justify-center space-x-6 mt-12 text-gray-400">
+                    <a href="mailto:david@example.com" class="hover:text-[--color-accent] transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/victor-david-923547393/" target="_blank" class="hover:text-[--color-accent] transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 0-12 0v5h4v-5a2 2 0 1 1 4 0v5h4z"/><rect x="2" y="2" width="20" height="20" rx="4" ry="4"/><line x1="12" y1="12" x2="12" y2="18"/><line x1="6" y1="12" x2="6" y2="18"/><line x1="6" y1="8" x2="6" y2="8.01"/></svg>
+                    </a>
+                    <a href="https://github.com/david" target="_blank" class="hover:text-[--color-accent] transition duration-200">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.67c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 3c0-2.64-1.28-3.4-3.5-3.6 0 0-1.07-.12-2.34 1.07A11 11 0 0 0 12 5.5c-3.73 0-5.46-2.55-5.46-3.6A5.07 5.07 0 0 0 6.09 3c-.08 0-.2.03-.3.06A5.44 5.44 0 0 0 5 4.77c0 4.15 3.3 5.34 6.44 5.69-.3.26-.5.62-.5 1.14v3.87"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-6 bg-gray-900 border-t border-[--color-secondary]">
+        <div class="container mx-auto px-4 text-center text-sm text-gray-500">
+            &copy; <span id="current-year"></span> David. All rights reserved. | Crafted with HTML & Tailwind CSS.
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactivity and Responsiveness -->
+    <script>
+        // Get the current year for the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // 1. Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 2. Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+            // Change the icon from Menu to X (optional, but good UX)
+            // You can implement icon change logic here if desired
+        });
+
+        // 3. Contact Form Submission (Mock)
+        const contactForm = document.getElementById('contact-form');
+        const contactMessage = document.getElementById('contact-message');
+
+        contactForm.addEventListener('submit', async (e) => {
+            // Stop page reload..
+            e.preventDefault();
+            
+            // In a real application, you would send this data to a backend server.
+            console.log('Form Submitted!');
+
+            const name = e.target.name.value.trim();
+            const email = e.target.email.value.trim();
+            const message = e.target.message.value.trim();
+
+            if (!name || !email || !message) {
+
+                contactMessage.textContent = "Please fill out all fields.";
+                contactMessage.classList.remove("hidden", "text-green-400");
+                contactMessage.classList.add("text-red-400");
+                return;
+            }
+
+            try {
+                const response = await fetch('/contact', {
+                    method: "POST",
+                    headers: {"content-type": "application/json"},
+                    body: JSON.stringify({name, email, message})
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    contactMessage.textContent = result.message;
+                    contactMessage.classList.remove("hidden", "text-red-400");
+                    contactMessage.classList.add("text-green-400");
+
+                    // Clear the form input..
+                    contactForm.reset();
+                } else {
+                    contactMessage.textContent = "Failed to send message. Try again later.";
+                    contactMessage.classList.remove("hidden", "text-green-400");
+                    contactMessage.classList.add("text-red-400");
+                }
+
+                // Hide message after a few seconds
+                setTimeout(() => {
+                    contactMessage.classList.add('hidden');
+                }, 5000);
+
+            } catch (error) {
+                contactMessage.textContent = "An error occurred. Please try again.";
+                contactMessage.classList.remove("hidden", "text-green-400");
+                contactMessage.classList.add("text-red-400");
+            }
+        });
+
+        // 4. Initialize Lucide Icons (to render SVG from the HTML tags)
+        window.addEventListener('load', () => {
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
